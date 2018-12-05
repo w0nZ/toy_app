@@ -12,7 +12,13 @@
 
 <p>
   <strong>Micropost:</strong>
-  <%= @user.microposts.first.content %>
+  <%=
+  if @user.microposts.first
+    @user.microposts.first.content
+  else
+    "no Micropost yet".html_safe
+  end
+  %>
 </p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
